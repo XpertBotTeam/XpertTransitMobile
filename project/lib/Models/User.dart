@@ -5,13 +5,16 @@ class User{
   final String? email;
   final String? phone;
   final String? password;
+  final String? role;
 
 
   User({
    this.name,
    required this.email,
    this.phone,
-   this.password
+   this.password,
+    this.role
+
 });
 
   Map <String,dynamic> ToMap(){
@@ -20,6 +23,7 @@ class User{
       'email':email,
       'phone':phone,
       'password':password,
+      'role':role
     };
   }
   String toJson()=>json.encode(ToMap());

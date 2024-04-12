@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xpertransitmobile_application/Controllers/LoginController.dart';
+import 'package:xpertransitmobile_application/Routes/AppRoute.dart';
 
 class Login extends GetView<LoginController>
 {
@@ -15,6 +16,7 @@ class Login extends GetView<LoginController>
           child:SingleChildScrollView(
             child:Column(
               children:[
+                SizedBox(height:80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -28,7 +30,7 @@ class Login extends GetView<LoginController>
                     )
                   ],
                 ),
-                SizedBox(height:10),
+                SizedBox(height:30),
                 Text("Email"),
                 SizedBox(height:10),
                 TextField(
@@ -50,6 +52,11 @@ class Login extends GetView<LoginController>
                         print("email");
                         print(controller.email.text);
                       },child:Text("Login")
+                    ),
+                    ElevatedButton(
+                        onPressed: (){
+                        Get.toNamed(AppRoute.register )  ;
+                        },child:Text("Register")
                     )
                   ],
                 )
