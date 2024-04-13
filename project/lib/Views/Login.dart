@@ -51,6 +51,7 @@ class Login extends GetView<LoginController>
                         print("clicked");
                         print("email");
                         print(controller.email.text);
+                        controller.login();
                       },child:Text("Login")
                     ),
                     ElevatedButton(
