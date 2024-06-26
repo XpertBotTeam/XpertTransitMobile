@@ -19,9 +19,9 @@ class LoginController extends GetxController{
 
     prefs= await SharedPreferences.getInstance();
 
-    if(prefs.getString('token')!=null)  // not null token? go to home page
+    if(prefs.getString('token')!=null)        // not null token? go to home page
     {
-      Get.offNamed(AppRoute.home);
+      Get.offNamed(AppRoute.driverhome);  //to be changed
     }
   }
 
@@ -36,7 +36,19 @@ class LoginController extends GetxController{
     if(post.statusCode==200)
       {
         prefs.setString("token", post.data['token']); //if null token, create a token
-        Get.offNamed(AppRoute.home);//when logged in take me to home page
+        prefs.setString("role", post.data['role']);
+
+        if(post.data['role']=='student'){
+          Get.offNamed(AppRoute.studenthome);
+        }
+        else{
+          Get.offNamed(AppRoute.driverhome);
+        }
+
+        //Get.offNamed(AppRoute.studenthome);//when logged in take me to home page
+        //add an if condition here + do not forget to add && at the top where if token present,
+        //go directly to the specified homepage
+
       }
 
   }

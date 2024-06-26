@@ -7,38 +7,44 @@ import '../Core/Network/DioClient.dart';
 import '../Core/showSuccessDialog.dart';
 import '../Models/User.dart';
 
+class RegisterController extends GetxController {
+  TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
-class RegisterController extends GetxController{
-  TextEditingController name=TextEditingController();
-  TextEditingController phone=TextEditingController();
-  TextEditingController email=TextEditingController();
-  TextEditingController password=TextEditingController();
-  TextEditingController role=TextEditingController();
+  bool isStudentSelected = false;
 
-  late SharedPreferences prefs;  // no need to re-register when re-entering the app
+  late SharedPreferences prefs;
+
   @override
-  void onInit() async{
-    // TODO: implement onInit
+  void onInit() async {
     super.onInit();
-
-    prefs= await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
   }
 
+  void register() async {
+    User user = User(
+      name: name.value.text,
+      email: email.value.text,
+      phone: phone.value.text,
+      password: password.value.text,
+      role: isStudentSelected ? 'student' : 'owner',
+    );
+    String requestBody = user.toJson();
 
-  void register() async
-  {
-    User user= User(name:name.value.text, email:email.value.text, phone:phone.value.text,password: password.value.text, role:role.value.text);
-    String request_body=user.toJson();
-    var post = await DioClient().getInstance().post('/register',data: request_body);
-    if(post.statusCode==200)
-      {
-        showSuccessDialog(Get.context!, "Success", "User Registered Successfully", (){
-          print(post.data);
-          prefs.setString('token',post.data['token']);//save the token so when re-entering the app no need to register again
-          Get.offNamed(AppRoute.home);  // go to home page after successful registration
-        });
+    var post = await DioClient().getInstance().post('/register', data: requestBody);
 
-      }
+    if (post.statusCode == 200) {
+      showSuccessDialog(Get.context!, "Success", "User Registered Successfully", () {
+        prefs.setString('token', post.data['token']);
+
+        if (isStudentSelected) {
+          Get.offNamed(AppRoute.studenthome); // Navigate to student home if student checkbox is selected
+        } else {
+          Get.offNamed(AppRoute.driverhome); // Navigate to driver home if driver checkbox is selected
+        }
+      });
+    }
   }
-
 }

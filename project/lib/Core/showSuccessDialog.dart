@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,12 +18,9 @@ void showSuccessDialog(BuildContext context, title, body, Function? callback){
                   callback();
                 }
           },
-
         )
       ]
     );
    }
   );
-
-
 }

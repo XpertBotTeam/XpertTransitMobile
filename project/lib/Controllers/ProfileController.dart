@@ -6,7 +6,7 @@ import 'package:xpertransitmobile_application/Routes/AppRoute.dart';
 import '../Models/User.dart';
 
 
-class HomeController extends GetxController{
+class ProfileController extends GetxController{
 
   late SharedPreferences prefs;
   @override
@@ -16,9 +16,9 @@ class HomeController extends GetxController{
     prefs=await SharedPreferences.getInstance();
   }
 
-  void logout()
-  {
-    prefs.remove("token");
-    Get.offNamed(AppRoute.login);
-  }
+
+
+
+
+
 }

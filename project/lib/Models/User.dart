@@ -7,7 +7,6 @@ class User{
   final String? password;
   final String? role;
 
-
   User({
    this.name,
    required this.email,
