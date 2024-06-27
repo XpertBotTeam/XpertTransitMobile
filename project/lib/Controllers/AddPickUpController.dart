@@ -23,11 +23,9 @@ class AddPickUpController extends GetxController {
     super.onInit();
     prefs = await SharedPreferences.getInstance();
   }
-
   Future<String> getToken() async {
     return prefs.getString('token') ?? '';
   }
-
   Future<Position> getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -62,8 +60,6 @@ class AddPickUpController extends GetxController {
     });
   }
 
-
-
   void fetchLocation() async {
     try {
       Position position = await getCurrentLocation();
@@ -74,9 +70,6 @@ class AddPickUpController extends GetxController {
       locationMessage.value = e.toString();
     }
   }
-
-
-
 
   void addPickUp() async {
     Location location = Location(

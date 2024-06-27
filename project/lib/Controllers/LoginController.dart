@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xpertransitmobile_application/Core/Network/DioClient.dart';
-
 import '../Models/User.dart';
 import '../Routes/AppRoute.dart';
 
@@ -13,17 +12,22 @@ class LoginController extends GetxController{
 
   late SharedPreferences prefs;
   @override
-  void onInit() async{
-    // TODO: implement onInit
+  void onInit() {
     super.onInit();
-
-    prefs= await SharedPreferences.getInstance();
-
-    if(prefs.getString('token')!=null)        // not null token? go to home page
-    {
-      Get.offNamed(AppRoute.driverhome);  //to be changed
-    }
+    initializePreferences();
   }
+
+  Future<void> initializePreferences() async {
+    prefs = await SharedPreferences.getInstance();
+
+    if (prefs.getString('token') != null && prefs.getString('role')=='student') {
+      Get.offNamed(AppRoute.studenthome);
+    } else if(prefs.getString('token') != null && prefs.getString('role')=='owner')
+      Get.offNamed(AppRoute.studenthome);
+    else {
+      Get.offNamed(AppRoute.login);
+    }
+    }
 
 
   void login () async

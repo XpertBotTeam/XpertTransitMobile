@@ -31,7 +31,7 @@ class DriverHome extends GetView<DriverHomeController>
                   onPressed: (){
                     Get.toNamed(AppRoute.busdetails);
                   },
-                  child: Text("Bus Details",
+                  child: Text("View Buses ",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

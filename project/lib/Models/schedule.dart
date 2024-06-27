@@ -24,4 +24,15 @@ class Schedule{
   }
 
   String toJson()=>json.encode(ToMap());
+
+  factory Schedule.fromJson(Map<String, dynamic> json) {
+    return Schedule(
+      day: json['day'] as String?,
+      start_time: json['start_time'] as String?,
+      end_time: json['end_time'] as String?,
+      is_attending: json['is_attending'] is bool ? json['is_attending'] : json['is_attending'] == 1,
+    );
+  }
+
+
 }

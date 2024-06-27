@@ -10,4 +10,5 @@ class AppRoute{
   static const String route= "/Route";
   static const String profile= "/Profile";
   static const String schedule= "/Schedule";
+  static const String moreDetailed= "/moreDetailed";
 }
