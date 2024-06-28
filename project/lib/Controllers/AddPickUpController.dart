@@ -19,13 +19,19 @@ class AddPickUpController extends GetxController {
   var long = ''.obs;
 
   @override
-  void onInit() async {
+  void onInit() {
     super.onInit();
+    _initializePreferences();
+  }
+
+  void _initializePreferences() async {
     prefs = await SharedPreferences.getInstance();
   }
+
   Future<String> getToken() async {
     return prefs.getString('token') ?? '';
   }
+
   Future<Position> getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -73,24 +79,28 @@ class AddPickUpController extends GetxController {
 
   void addPickUp() async {
     Location location = Location(
-      latitude: latitude.value.text,
-      longitude: longitude.value.text,
+      latitude: latitude.text,
+      longitude: longitude.text,
     );
-
-    String request_body = location.toJson();
 
     var dio = DioClient().getInstance();
     var token = await getToken();
     dio.options.headers["Authorization"] = "Bearer $token";
     dio.options.headers["Content-Type"] = "application/json";
 
-    var post = await dio.post('/locations', data: request_body);
+    try {
+      var response = await dio.post(
+        "/locations",
+        data: {"latitude": latitude.text, "longitude": longitude.text},
+      );
 
-    if (post.statusCode == 200) {
-      showSuccessDialog(
-          Get.context!, 'Success', 'Location Sent to Driver', () {});
-    } else {
-      showSuccessDialog(Get.context!, 'Error', 'Error Adding Location', () {});
+      if (response.statusCode == 200) {
+        showSuccessDialog(Get.context!, 'Success', 'Location Sent to Driver', () {});
+      } else {
+        showSuccessDialog(Get.context!, 'Error', 'Error Adding Location', () {});
+      }
+    } catch (e) {
+      showSuccessDialog(Get.context!, 'Error', 'Error: ${e.toString()}', () {});
     }
   }
 }
