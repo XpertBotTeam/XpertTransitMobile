@@ -3,6 +3,7 @@ import 'package:xpertransitmobile_application/Bindings/AddBusBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/AddPickUpBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/BusDetailsBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/DriverHomeBinding.dart';
+import 'package:xpertransitmobile_application/Bindings/JoinBusBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/LoginBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/ProfileBinding.dart';
 import 'package:xpertransitmobile_application/Bindings/RegisterBinding.dart';
@@ -17,6 +18,7 @@ import 'package:xpertransitmobile_application/Views/AddPickUp.dart';
 import 'package:xpertransitmobile_application/Views/AddSchedule.dart';
 import 'package:xpertransitmobile_application/Views/BusDetails.dart';
 import 'package:xpertransitmobile_application/Views/DriverHome.dart';
+import 'package:xpertransitmobile_application/Views/JoinBus.dart';
 import 'package:xpertransitmobile_application/Views/Login.dart';
 import 'package:xpertransitmobile_application/Views/Profile.dart';
 import 'package:xpertransitmobile_application/Views/Register.dart';
@@ -41,6 +43,7 @@ class AppPage{
     GetPage(name: AppRoute.profile, page: ()=>Profile(),binding:ProfileBinding()),
     GetPage(name: AppRoute.schedule, page: ()=>ShowSchedule(),binding:ShowScheduleBinding()),
     GetPage(name: AppRoute.moreDetailed, page: ()=>moreDetailed(),binding:moreDetailedBinding()),
+    GetPage(name: AppRoute.joinbus, page: ()=>JoinBus(),binding:JoinBusBinding()),
 
   ];
 }

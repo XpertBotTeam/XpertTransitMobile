@@ -40,9 +40,9 @@ class RegisterController extends GetxController {
         prefs.setString('token', post.data['token']);
 
         if (isStudentSelected) {
-          Get.offNamed(AppRoute.studenthome); // Navigate to student home if student checkbox is selected
+          Get.offNamed(AppRoute.studenthome);
         } else {
-          Get.offNamed(AppRoute.driverhome); // Navigate to driver home if driver checkbox is selected
+          Get.offNamed(AppRoute.driverhome);
         }
       });
     }

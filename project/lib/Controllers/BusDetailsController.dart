@@ -39,6 +39,7 @@ class BusDetailsController extends GetxController {
       if (response.statusCode == 200) {
         final List<dynamic> busesJson = jsonDecode(response.body)['data'];
         buses.assignAll(busesJson.map((json) => Bus.fromJson(json)).toList());
+        print(busesJson);
       } else {
         throw Exception('Failed to load buses');
       }
@@ -47,7 +48,9 @@ class BusDetailsController extends GetxController {
     }
   }
 
-void deleteBus(String busId) async {
+
+
+void deleteBus(int busId) async {
     try {
       var dio = DioClient().getInstance();
       var token = await getToken();

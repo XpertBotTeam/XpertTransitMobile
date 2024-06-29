@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class Bus{
- // final String? id;
+  final int? id;
   final String? name;
   final String? description;
 
   Bus({
-    //this.id,
+    this.id,
     this.name,
     this.description
 
@@ -14,7 +14,7 @@ class Bus{
 
   Map <String,dynamic> ToMap(){
     return {
-     // 'id':id,
+      'id':id,
       'name':name,
       'description':description
     };
@@ -25,7 +25,7 @@ class Bus{
 
   factory Bus.fromJson(Map<String, dynamic> json) {
     return Bus(
-        //id:json['id'] as String?,
+        id:json['id'] as int?,
         name: json['name'] as String?,
         description: json['description'] as String?,
         );

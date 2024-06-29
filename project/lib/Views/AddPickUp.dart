@@ -32,7 +32,7 @@ class AddPickUp extends GetView<AddPickUpController> {
               onPressed: () {
                 controller.addPickUp();
               },
-              child: Text('Send My Location'),
+              child: Text('Send My Current Location'),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -64,7 +64,7 @@ class AddPickUp extends GetView<AddPickUpController> {
                   );
                 }
               },
-              child: Text('Open in Google Maps'),
+              child: Text('Open Location in Google Maps'),
             ),
             Image.asset('images/geoloc.jpg', width: 250, height: 250),
           ],
@@ -79,3 +79,6 @@ class AddPickUp extends GetView<AddPickUpController> {
     return (number != null);
   }
 }
+
+
+

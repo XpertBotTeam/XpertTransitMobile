@@ -23,23 +23,9 @@ class StudentHome extends GetView<StudentHomeController>
             Image.asset('images/boyStudent.jpg',width:400,height: 320,),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
 
-                ElevatedButton(
-                    onPressed:(){
-                      Get.toNamed(AppRoute.addschedule);
-                    },
-                    child: Center(
-                      child: Text("Add Schedule",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                        ),
-
-                      ),
-                    ),),
 
                 ElevatedButton(
                     onPressed:(){
@@ -54,31 +40,68 @@ class StudentHome extends GetView<StudentHomeController>
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
-
                         ),
+                      ),
+                    ),
+                ),
 
+                ElevatedButton(
+                    onPressed: (){
+                      Get.toNamed(AppRoute.joinbus);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+
+                      child: Text("Join Bus",
+
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
 
-                ),
+
+                )
                 
               ],
             ),
 
 
-            ElevatedButton(onPressed: (){
-              Get.toNamed(AppRoute.schedule);
-            },
-                child: Text('Show My Schedule',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
 
-                  ),
+                ElevatedButton(
+                  onPressed:(){
+                    Get.toNamed(AppRoute.addschedule);
+                  },
+                  child: Center(
+                    child: Text("Add Schedule",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16
+                      ),
+
+                    ),
+                  ),),
+                ElevatedButton(onPressed: (){
+                  Get.toNamed(AppRoute.schedule);
+                },
+                    child: Text('Show My Schedule',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+
+                      ),
 
 
-                ))
+                    )),
+              ],
+            )
 
 
 
@@ -122,11 +145,6 @@ class StudentHome extends GetView<StudentHomeController>
                 ),
 
 
-
-
-               /* ElevatedButton(onPressed: (){
-                  controller.logout();
-                }, child: Text("Logout"))*/
 
               ],
             )

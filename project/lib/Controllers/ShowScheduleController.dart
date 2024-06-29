@@ -47,9 +47,6 @@ class ShowScheduleController extends GetxController {
       print('Error fetching schedule: $e');
     }
   }
-//dioclient
-
-
 
 
 }

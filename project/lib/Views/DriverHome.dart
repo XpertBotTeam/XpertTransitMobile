@@ -112,20 +112,6 @@ class DriverHome extends GetView<DriverHomeController>
             ),
 
 
-
-
-
-
-            /*ElevatedButton(onPressed: (){
-                controller.logout();
-            },
-              child: Row(
-              children: [
-                Icon(Icons.logout),
-                Text("Logout")
-              ],
-            ),
-            )*/
           ],
         )
       )

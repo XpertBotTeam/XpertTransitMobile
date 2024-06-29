@@ -49,9 +49,7 @@ class LoginController extends GetxController{
           Get.offNamed(AppRoute.driverhome);
         }
 
-        //Get.offNamed(AppRoute.studenthome);//when logged in take me to home page
-        //add an if condition here + do not forget to add && at the top where if token present,
-        //go directly to the specified homepage
+
 
       }
 

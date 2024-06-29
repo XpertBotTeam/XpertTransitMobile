@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:geolocator/geolocator.dart';
-
 import 'package:xpertransitmobile_application/Models/location.dart';
-
 import '../Core/Network/DioClient.dart';
 import '../Core/showSuccessDialog.dart';
 
@@ -17,6 +15,8 @@ class AddPickUpController extends GetxController {
   var locationMessage = ''.obs;
   var lat = ''.obs;
   var long = ''.obs;
+
+  String userId = "default_user"; // Change this to dynamically get the current user ID
 
   @override
   void onInit() {
@@ -71,13 +71,13 @@ class AddPickUpController extends GetxController {
       Position position = await getCurrentLocation();
       latitude.text = position.latitude.toString();
       longitude.text = position.longitude.toString();
-      locationMessage.value = 'Latitude: ${latitude.text}, Longitude: ${longitude.text}';
+      locationMessage.value = 'Location is at:\nLatitude: ${latitude.text}, Longitude: ${longitude.text}\nLocation can now be sent to the driver.';
     } catch (e) {
       locationMessage.value = e.toString();
     }
   }
 
-  void addPickUp() async {
+  Future<void> addPickUp() async {
     Location location = Location(
       latitude: latitude.text,
       longitude: longitude.text,

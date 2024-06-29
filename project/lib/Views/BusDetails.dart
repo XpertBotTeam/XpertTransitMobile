@@ -11,6 +11,7 @@ class BusDetails extends GetView<BusDetailsController> {
         title: Text("Buses"),
         backgroundColor: Colors.teal[700],
       ),
+
       body: Obx(() {
         if (controller.buses.isEmpty) {
           return Center(child: CircularProgressIndicator());
@@ -25,6 +26,7 @@ class BusDetails extends GetView<BusDetailsController> {
                 trailing: IconButton(
                   icon: Icon(Icons.delete, color: Colors.red),
                   onPressed: () {
+                    //controller.deleteBus(bus.id); **********
                   },
                 ),
               );
@@ -35,7 +37,7 @@ class BusDetails extends GetView<BusDetailsController> {
     );
   }
 
-  /*void _showDeleteConfirmationDialog(BuildContext context, Bus bus) {
+  void _showDeleteConfirmationDialog(BuildContext context, Bus bus) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -61,5 +63,5 @@ class BusDetails extends GetView<BusDetailsController> {
         );
       },
     );
-  }*/
+  }
 }

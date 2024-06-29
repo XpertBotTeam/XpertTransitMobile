@@ -13,7 +13,7 @@ class StudentHomeController extends GetxController{
   prefs=await SharedPreferences.getInstance();
 }
 
-  void logout()           //inorder to logout , remove the token
+  void logout()
   {
     prefs.remove("token") ;
     Get.offNamed(AppRoute.login);

@@ -3,7 +3,7 @@ import 'package:xpertransitmobile_application/Controllers/BusDetailsController.d
 import 'package:xpertransitmobile_application/Controllers/DriverHomeController.dart';
 import 'package:xpertransitmobile_application/Controllers/ProfileController.dart';
 
-import '../Controllers/RouteConrtoller.dart';
+import '../Controllers/RouteController.dart';
 
 
 class ProfileBinding extends Bindings{
