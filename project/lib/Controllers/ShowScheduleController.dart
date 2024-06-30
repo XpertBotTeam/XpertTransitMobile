@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:xpertransitmobile_application/Models/bus.dart';
-
 import '../Models/schedule.dart';
 
 class ShowScheduleController extends GetxController {

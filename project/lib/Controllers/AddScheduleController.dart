@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xpertransitmobile_application/Core/Network/DioClient.dart';
 import 'package:xpertransitmobile_application/Models/schedule.dart';
-import 'package:xpertransitmobile_application/Routes/AppRoute.dart';
+
 
 import '../Core/showSuccessDialog.dart';
 import '../Models/User.dart';

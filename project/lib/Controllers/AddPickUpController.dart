@@ -16,7 +16,7 @@ class AddPickUpController extends GetxController {
   var lat = ''.obs;
   var long = ''.obs;
 
-  String userId = "default_user"; // Change this to dynamically get the current user ID
+  String userId = "default_user";
 
   @override
   void onInit() {

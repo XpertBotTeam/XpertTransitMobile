@@ -10,24 +10,27 @@ class JoinBus extends GetView<JoinBusController> {
         title: Text("Join Bus"),
         backgroundColor: Colors.teal[700],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              controller.getCode();
-            },
-            child: Text('Get Code'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextField(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+
+                String busId = '11';
+                controller.getCode(busId);
+              },
+              child: Text('Get Code'),
+            ),
+            SizedBox(height: 20),
+            TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white)
+                  borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey.shade500)
+                  borderSide: BorderSide(color: Colors.grey.shade500),
                 ),
                 hintText: "Enter Bus Code to Join Bus",
                 hintStyle: TextStyle(color: Colors.black),
@@ -36,14 +39,15 @@ class JoinBus extends GetView<JoinBusController> {
               ),
               controller: controller.code,
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              controller.joinBus();
-            },
-            child: Text('Join'),
-          ),
-        ],
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                controller.joinBus();
+              },
+              child: Text('Join'),
+            ),
+          ],
+        ),
       ),
     );
   }

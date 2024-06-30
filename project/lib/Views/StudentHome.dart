@@ -27,23 +27,7 @@ class StudentHome extends GetView<StudentHomeController>
               children: [
 
 
-                ElevatedButton(
-                    onPressed:(){
-                      Get.toNamed(AppRoute.addpickup);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
 
-                      child: Text("Pick-up Location",
-
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                        ),
-                      ),
-                    ),
-                ),
 
                 ElevatedButton(
                     onPressed: (){
@@ -63,7 +47,25 @@ class StudentHome extends GetView<StudentHomeController>
                     ),
 
 
-                )
+                ),
+
+                ElevatedButton(
+                  onPressed:(){
+                    Get.toNamed(AppRoute.addpickup);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+
+                    child: Text("Pick-up Location",
+
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
                 
               ],
             ),
